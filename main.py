@@ -1,0 +1,56 @@
+from PyQt5.QtCore import Qt
+from PyQt5.QtWidgets import QApplication, QLabel, QVBoxLayout, QHBoxLayout, QWidget, QLineEdit, QTextEdit, QListWidget, QPushButton
+
+app = QApplication([])
+main_win = QWidget()
+main_win.resize(900, 900)
+main_win.setWindowTitle("Зометочки)))")
+
+
+notesL = QListWidget()
+notesLText = QLabel("Списочек)")
+butAdd = QPushButton("Добавить надо))")
+butDel = QPushButton("удолеть(")
+butSave = QPushButton('Сохраняем:))0')
+# едитор))
+textEditor = QTextEdit()
+# списочек хэштигов((0)
+listTags = QListWidget()
+
+listTagsText = QLabel("хештэжги))")
+textTags = QLineEdit('')
+textTags.setPlaceHolderText("Ввади хежтыг))")
+butTagsAdd = QPushButton("Добавляй тыг")
+butTagsDel = QPushButton("Выкинь хеэтыг((")
+butTagsSearch = QPushButton("поеск по тегу))")
+mainH = QHBoxLayout()
+col_1= QVBoxLayout()
+col_1.addWidget(textEditor)
+
+col_2 = QVBoxLayout()
+col_2.addWidget(notesLText)
+col_2.addWidget(notesL)
+row_1 = QHBoxLayout()
+row_1.addWidget(butAdd)
+row_1.addWidget(butDel)
+row_2 = QHBoxLayout()
+row_2.addWidget(butSave)
+col_2.addLayout(row_1)
+col_2.addLayout(row_2)
+
+col_2.addWidget(listTagsText)
+col_2.addWidget(listTags)
+col_2.addWidget(textTags)
+row_3 = QHBoxLayout()
+row_3.addWidget(butTagsAdd)
+row_3.addWidget(butTagsDel)
+row_4 = QHBoxLayout()
+row_4.addWidget(butTagsSearch)
+col_2.addLayout(row_3)
+col_2.addLayout(row_4)
+
+mainH.addLayout(col_1, stretch = 2)
+mainH.addLayout(col_2, stretch = 1)
+
+main_win.show()
+app.exec()
